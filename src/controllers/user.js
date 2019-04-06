@@ -1,5 +1,5 @@
 const User = require('../models/user')
-
+const mongoose = require('mongoose')
 const create = async (req,res) => {
     const {employeeID,companyID,name,email} = req.body;
     
@@ -19,4 +19,8 @@ const create = async (req,res) => {
     }
 }
 
-module.exports = {create}
+const read = async (req,res) => {
+    User = await User.findOne({type: req.body.employeeID}, (error) => {console.log(error, " ocurred")})
+}
+
+module.exports = {create, read}
