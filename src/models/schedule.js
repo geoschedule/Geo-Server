@@ -2,16 +2,17 @@ const mongoose = require('mongoose');
 
 
 const scheduleSchema = new mongoose.Schema({
-    EmployeeID : {type : String, required : true},
-    CompanyID : {type: String, required : true},
-    Date: {type : String, required : true},
-    Sunday : {type : String},
-    Monday : {type : String},
-    Tuesday : {type : String},
-    Wednesday : {type : String},
-    Thursday : {type : String},
-    Friday : {type : String},
-    Saturday : {type : String}
+    employeeID : {type : String, required: true},
+    companyID : {type: String, required: true},
+    sunday : { scheduled: {type: String, required: true}, startTime: {type: String, required: true}, endTime: {type: String, required: true}},
+    monday : { scheduled: {type: String, required: true}, startTime: {type: String, required: true}, endTime: {type: String, required: true}},
+    tuesday : { scheduled: {type: String, required: true}, startTime: {type: String, required: true}, endTime: {type: String, required: true}},
+    wednesday : { scheduled: {type: String, required: true}, startTime: {type: String, required: true}, endTime: {type: String, required: true}},
+    thursday : { scheduled: {type: String, required: true}, startTime: {type: String, required: true}, endTime: {type: String, required: true}},
+    friday : { scheduled: {type: String, required: true}, startTime: {type: String, required: true}, endTime: {type: String, required: true}},
+    saturday : { scheduled: {type: String, required: true}, startTime: {type: String, required: true}, endTime: {type: String, required: true}}
 })
 
 const Schedule = mongoose.model("Schedule", scheduleSchema);
+
+module.exports = Schedule;
