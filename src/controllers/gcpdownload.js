@@ -22,11 +22,11 @@ const download = async (bucketName, srcFilename, options) => {await storage
   .file(srcFilename)
   .download(options);
 }
-try{
-download(bucketName, srcFilename, options);
-console.log(
+//try{
+//download(bucketName, srcFilename, options);
+/*console.log(
   `gs://${bucketName}/${srcFilename} downloaded to ${destFilename}.`
 );
-}catch(e){console.log(e)}
+}catch(e){console.log(e)}*/
 
 module.exports = {download}

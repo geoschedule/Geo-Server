@@ -8,7 +8,7 @@ const storage = new Storage();
  * TODO(developer): Uncomment the following lines before running the sample.
  */
 const bucketName = 'hatterhack';
-const filename = 'android16L.jpg';
+const filename = '../android16L.jpg';
 
 // Uploads a local file to the bucket
 const send = async(filename, bucketName) => 
