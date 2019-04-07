@@ -1,15 +1,15 @@
-mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-const options = {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-  dbName: "GeoHacks",
-}
-const db = () => Promise.resolve(mongoose.connect("mongodb://localhost:27017/Geo", options));
+const server = 'localhost:27017';
+const database = 'passport-tutorial'
 
-
+const db = () =>
+  Promise.resolve(
+    mongoose.connect(
+      `mongodb://${server}/${database}`
+    )
+  );
 
 db()
-.then( () => console.log("MongoDB is connected"))
-.catch( e => console.log('There was an error with the connection' , e));
+  .then(() => console.log("> 🗄  Mongo connected"))
+  .catch(e => console.log("> Mongo error ", e.message));
