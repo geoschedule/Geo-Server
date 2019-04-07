@@ -1,19 +1,19 @@
-const User = require('../models/user')
-const mongoose = require('mongoose')
-
+const User = require('../models/user.js')
 const create = async (req,res) => {
-    const {employeeID,companyID,name,email} = req.body;
+    const {employeeID,companyID,name,email} =  req.body;
+    console.log({employeeID,companyID,name,email})
     
     const fields = {
-        employeeID,
-        companyID,
-        name,
-        email
+        employeeID : employeeID,
+        companyID : companyID,
+        name: name,
+        email: email
     }
    
+    console.log(req.body)
     try {
-        const User = await User.create(fields);
-
+        const user = await User.create(fields);
+        
         return res.status(200).send({success:true,User})
     }catch(e){
         return res.status(400).send({success: false,error: e})
@@ -21,13 +21,20 @@ const create = async (req,res) => {
 }
 
 const read = async (req,res) => {
-    User = await User.findOne({type: req.body.employeeID}, (error) => {console.log(error, " ocurred")})
+    const user = await User.findOne({type: req.body.employeeID}, (error) => {console.log(error, " ocurred")})
 }
 
 const readAll = async (req, res) => {
-    User = await User.findAll({})
+
+    try{
+    const user = await User.find({});
+
+    return res.status(200).send({success:true,user})
+    }catch(e){
+        return res.status(400).send({success: false,error: e})
+    }
 }
 
 
 
-module.exports = {create, read}
+module.exports = {create, read, readAll}

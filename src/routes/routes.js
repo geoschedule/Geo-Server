@@ -4,7 +4,7 @@ const user = require("../controllers/user.js")
 const schedule = require("../controllers/schedule.js")
 
 Router.post("/user",user.create)
-Router.get("/user", user.read)
+Router.get("/user/read", user.readAll)
 Router.post("/schedule", schedule.create)
 Router.get("/schedule", schedule.readAll)
 

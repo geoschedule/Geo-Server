@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyparser = require('body-parser');
 const db = require('./db/index');
-const routes = require('./routes/routes')
+const route = require('./routes/routes')
 const port = 3000;
 
 const app = express();
@@ -28,5 +28,7 @@ io.on('connection',(socket) => {
         socket.broadcast.emit('Web-receieveRegistration',data);
     })
 })
+
+app.use("/" , route.Router)
 
 console.log('server listening');

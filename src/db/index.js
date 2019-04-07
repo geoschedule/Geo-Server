@@ -3,6 +3,7 @@ mongoose = require('mongoose');
 const options = {
   useNewUrlParser: true,
   useCreateIndex: true,
+  useFindAndModify: false,
   dbName: "GeoHacks",
 }
 const db = () => Promise.resolve(mongoose.connect("mongodb://localhost:27017/Geo", options));
